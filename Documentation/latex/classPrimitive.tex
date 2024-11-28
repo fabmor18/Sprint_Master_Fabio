@@ -1,0 +1,105 @@
+\hypertarget{classPrimitive}{}\doxysection{Primitive Class Reference}
+\label{classPrimitive}\index{Primitive@{Primitive}}
+
+
+{\ttfamily \#include $<$primitives.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPrimitive_aada5b90e11ffeea8c9050e6543d8539a}\label{classPrimitive_aada5b90e11ffeea8c9050e6543d8539a}} 
+{\bfseries Primitive} (std\+::array$<$ float, 3 $>$ initial\+\_\+position, std\+::array$<$ float, 3 $>$ initial\+\_\+velocity, std\+::array$<$ float, 3 $>$ initial\+\_\+acceleration, std\+::array$<$ float, 3 $>$ final\+\_\+position, std\+::array$<$ float, 3 $>$ final\+\_\+velocity, std\+::array$<$ float, 3 $>$ final\+\_\+acceleration, const std\+::vector$<$ std\+::array$<$ int, 3 $>$$>$ \&path\+\_\+offsets, float cost, int id)
+\item 
+\mbox{\hyperlink{classPrimitive_a3de0d2845733f659909247932efdd9db}{Primitive}} (const nlohmann\+::json \&data, int id, Controls control\+\_\+level)
+\item 
+\mbox{\hyperlink{classNode}{Node}} \mbox{\hyperlink{classPrimitive_ab19cd0dc7145839a4d283cc46db1f387}{apply\+\_\+primitive}} (const \mbox{\hyperlink{classNode}{Node}} \&start) const
+\item 
+\mbox{\hyperlink{structnode__data}{node\+\_\+data}} \mbox{\hyperlink{classPrimitive_a65be50b2ae9f130d2565f65a3d6fe733}{get\+\_\+initial\+\_\+condition}} () const
+\item 
+\mbox{\hyperlink{structnode__data}{node\+\_\+data}} \mbox{\hyperlink{classPrimitive_adf0abbcfc519799bdb28a6ce18de07eb}{get\+\_\+final\+\_\+condition}} () const
+\item 
+std\+::vector$<$ std\+::array$<$ int, 3 $>$ $>$ \mbox{\hyperlink{classPrimitive_a9805625f0718f055c52b69202d1351d4}{get\+\_\+path}} ()
+\item 
+float \mbox{\hyperlink{classPrimitive_a7aa438aefe46ada7363ff9fe4ab8c8c5}{get\+\_\+cost}} () const
+\item 
+int \mbox{\hyperlink{classPrimitive_a43258c952dc68f8357e4d5388bb79461}{get\+\_\+id}} () const
+\item 
+nlohmann\+::json \mbox{\hyperlink{classPrimitive_ab6c35507fd2e4793eef8901b211a873a}{to\+\_\+json}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPrimitive_af1b26449d8ea09db750365f8411eac73}\label{classPrimitive_af1b26449d8ea09db750365f8411eac73}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \mbox{\hyperlink{classPrimitive}{Primitive}} \&obj)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class defines a motion primitive used by the algorithm. Each \mbox{\hyperlink{classPrimitive}{Primitive}} is identified by two \mbox{\hyperlink{structnode__data}{node\+\_\+data}} structures, one defining the initial condition under which the primitive can be applied and one defining the final condition reached after the application of the primitive. Each primitive also contains a variable called path\+\_\+offsets that is a vector of int arrays of size 3 where each array represents a checkpoint for the collision checking stored as relative position difference with respect to the starting node. Each primitive also has a cost, expressed as a float and an int id. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPrimitive_a3de0d2845733f659909247932efdd9db}\label{classPrimitive_a3de0d2845733f659909247932efdd9db}} 
+\index{Primitive@{Primitive}!Primitive@{Primitive}}
+\index{Primitive@{Primitive}!Primitive@{Primitive}}
+\doxysubsubsection{\texorpdfstring{Primitive()}{Primitive()}}
+{\footnotesize\ttfamily Primitive\+::\+Primitive (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{data,  }\item[{int}]{id,  }\item[{Controls}]{control\+\_\+level }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+Constructor for a primitive that takes a json data as input. Takes also a control level as input since depending on it some values might be set to zero. (e.\+g., if control level is set to VEL then acceleration has no meaning and is set to zero)
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPrimitive_ab19cd0dc7145839a4d283cc46db1f387}\label{classPrimitive_ab19cd0dc7145839a4d283cc46db1f387}} 
+\index{Primitive@{Primitive}!apply\_primitive@{apply\_primitive}}
+\index{apply\_primitive@{apply\_primitive}!Primitive@{Primitive}}
+\doxysubsubsection{\texorpdfstring{apply\_primitive()}{apply\_primitive()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classNode}{Node}} Primitive\+::apply\+\_\+primitive (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classNode}{Node}} \&}]{start }\end{DoxyParamCaption}) const}
+
+This function applies the current primitive to the given \mbox{\hyperlink{classNode}{Node}}. The new node position is equal to the old node position plus the values of the final\+\_\+condition position while velocity and acceleration are simply overwritten with the new values. 
+\begin{DoxyParams}{Parameters}
+{\em start} & The \mbox{\hyperlink{classNode}{Node}} where the primitive is applied. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{classNode}{Node}} reached.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPrimitive_a7aa438aefe46ada7363ff9fe4ab8c8c5}\label{classPrimitive_a7aa438aefe46ada7363ff9fe4ab8c8c5}} 
+\index{Primitive@{Primitive}!get\_cost@{get\_cost}}
+\index{get\_cost@{get\_cost}!Primitive@{Primitive}}
+\doxysubsubsection{\texorpdfstring{get\_cost()}{get\_cost()}}
+{\footnotesize\ttfamily float Primitive\+::get\+\_\+cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter function for cost parameter.\mbox{\Hypertarget{classPrimitive_adf0abbcfc519799bdb28a6ce18de07eb}\label{classPrimitive_adf0abbcfc519799bdb28a6ce18de07eb}} 
+\index{Primitive@{Primitive}!get\_final\_condition@{get\_final\_condition}}
+\index{get\_final\_condition@{get\_final\_condition}!Primitive@{Primitive}}
+\doxysubsubsection{\texorpdfstring{get\_final\_condition()}{get\_final\_condition()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structnode__data}{node\+\_\+data}} Primitive\+::get\+\_\+final\+\_\+condition (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter function for final\+\_\+condition parameter.\mbox{\Hypertarget{classPrimitive_a43258c952dc68f8357e4d5388bb79461}\label{classPrimitive_a43258c952dc68f8357e4d5388bb79461}} 
+\index{Primitive@{Primitive}!get\_id@{get\_id}}
+\index{get\_id@{get\_id}!Primitive@{Primitive}}
+\doxysubsubsection{\texorpdfstring{get\_id()}{get\_id()}}
+{\footnotesize\ttfamily int Primitive\+::get\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter function for id parameter.\mbox{\Hypertarget{classPrimitive_a65be50b2ae9f130d2565f65a3d6fe733}\label{classPrimitive_a65be50b2ae9f130d2565f65a3d6fe733}} 
+\index{Primitive@{Primitive}!get\_initial\_condition@{get\_initial\_condition}}
+\index{get\_initial\_condition@{get\_initial\_condition}!Primitive@{Primitive}}
+\doxysubsubsection{\texorpdfstring{get\_initial\_condition()}{get\_initial\_condition()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structnode__data}{node\+\_\+data}} Primitive\+::get\+\_\+initial\+\_\+condition (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter function for initial\+\_\+condition parameter.\mbox{\Hypertarget{classPrimitive_a9805625f0718f055c52b69202d1351d4}\label{classPrimitive_a9805625f0718f055c52b69202d1351d4}} 
+\index{Primitive@{Primitive}!get\_path@{get\_path}}
+\index{get\_path@{get\_path}!Primitive@{Primitive}}
+\doxysubsubsection{\texorpdfstring{get\_path()}{get\_path()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::array$<$ int, 3 $>$ $>$ Primitive\+::get\+\_\+path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Getter function for path\+\_\+offsets parameter.\mbox{\Hypertarget{classPrimitive_ab6c35507fd2e4793eef8901b211a873a}\label{classPrimitive_ab6c35507fd2e4793eef8901b211a873a}} 
+\index{Primitive@{Primitive}!to\_json@{to\_json}}
+\index{to\_json@{to\_json}!Primitive@{Primitive}}
+\doxysubsubsection{\texorpdfstring{to\_json()}{to\_json()}}
+{\footnotesize\ttfamily json Primitive\+::to\+\_\+json (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Function that generates a json data from a \mbox{\hyperlink{classPrimitive}{Primitive}}. It is used to store primitives in a json file for easily and human readable serialization.
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/primitives.\+h\item 
+src/primitives.\+cpp\end{DoxyCompactItemize}

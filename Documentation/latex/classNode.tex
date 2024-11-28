@@ -1,0 +1,77 @@
+\hypertarget{classNode}{}\doxysection{Node Class Reference}
+\label{classNode}\index{Node@{Node}}
+
+
+{\ttfamily \#include $<$map\+\_\+objects.\+h$>$}
+
+
+
+Collaboration diagram for Node\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=148pt]{classNode__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNode_a9b67ac8e86e143aa8569b44330f6e557}\label{classNode_a9b67ac8e86e143aa8569b44330f6e557}} 
+{\bfseries Node} (std\+::array$<$ float, 3 $>$ position, std\+::array$<$ float, 3 $>$ velocity, std\+::array$<$ float, 3 $>$ acceleration, std\+::array$<$ float, 3 $>$ jerk)
+\item 
+\mbox{\hyperlink{classNode_a1af4fb5d9f797de66814fd5004c7dbc9}{Node}} (const \mbox{\hyperlink{classNode}{Node}} \&input\+\_\+node)
+\item 
+bool \mbox{\hyperlink{classNode_aae0b27f0cc984f14762e24f6b8d6f0ee}{compare\+\_\+nodes}} (const \mbox{\hyperlink{classNode}{Node}} \&comparator, Controls control\+\_\+level)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNode_a2cda78a66b11a23ce61fd6e44c47f9a8}\label{classNode_a2cda78a66b11a23ce61fd6e44c47f9a8}} 
+\mbox{\hyperlink{structnode__data}{node\+\_\+data}} {\bfseries data} \{\}
+\item 
+\mbox{\Hypertarget{classNode_abd306b7b79d197c01fae1a2d53f83346}\label{classNode_abd306b7b79d197c01fae1a2d53f83346}} 
+std\+::array$<$ float, 3 $>$ {\bfseries jerk} \{\}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNode_aa13c716dda529b01000661b942327bd6}\label{classNode_aa13c716dda529b01000661b942327bd6}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \mbox{\hyperlink{classNode}{Node}} \&obj)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class describing a \mbox{\hyperlink{classNode}{Node}}, each one has a \mbox{\hyperlink{structnode__data}{node\+\_\+data}} struct containing the information about position, velocity and acceleration and a fourth array for jerk information. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classNode_a1af4fb5d9f797de66814fd5004c7dbc9}\label{classNode_a1af4fb5d9f797de66814fd5004c7dbc9}} 
+\index{Node@{Node}!Node@{Node}}
+\index{Node@{Node}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{Node()}{Node()}}
+{\footnotesize\ttfamily Node\+::\+Node (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classNode}{Node}} \&}]{input\+\_\+node }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{classNode}{Node}} constructor that creates a copy of the input node.
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNode_aae0b27f0cc984f14762e24f6b8d6f0ee}\label{classNode_aae0b27f0cc984f14762e24f6b8d6f0ee}} 
+\index{Node@{Node}!compare\_nodes@{compare\_nodes}}
+\index{compare\_nodes@{compare\_nodes}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{compare\_nodes()}{compare\_nodes()}}
+{\footnotesize\ttfamily bool Node\+::compare\+\_\+nodes (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classNode}{Node}} \&}]{comparator,  }\item[{Controls}]{control\+\_\+level }\end{DoxyParamCaption})}
+
+This method compares two nodes returning a boolean value based on the comparison. Takes a control level as input since for different control levels the comparison considers different parameters. 
+\begin{DoxyParams}{Parameters}
+{\em comparator} & \mbox{\hyperlink{classNode}{Node}} to compare the current with. \\
+\hline
+{\em control\+\_\+level} & the control level adopted for the comparison. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool value with the result of the comparison.
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{map__objects_8h}{map\+\_\+objects.\+h}}\item 
+src/map\+\_\+objects.\+cpp\end{DoxyCompactItemize}

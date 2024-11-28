@@ -1,0 +1,23 @@
+{"primitives":[
+  {
+    "cost":1.0,
+    "initial_pos":[0.0,0.0,0.0],
+    "initial_acc":[0.0,0.0,0.0],
+    "initial_vel":[0.0,0.0,0.0],
+    "final_pos":[9.0,0.0,0.0],
+    "final_acc":[0.0,0.0,0.0],
+    "final_vel":[0.0,0.0,0.0],
+    "path":[[1,1,1]]
+  },
+  {
+    "cost":1.0,
+    "initial_pos":[0.0,0.0,0.0],
+    "initial_acc":[0.0,0.0,0.0],
+    "initial_vel":[0.0,0.0,0.0],
+    "final_pos":[7.0,0.0,0.0],
+    "final_acc":[0.0,0.0,0.0],
+    "final_vel":[0.0,0.0,0.0],
+    "path":[[1,1,1]]
+  }
+]
+}

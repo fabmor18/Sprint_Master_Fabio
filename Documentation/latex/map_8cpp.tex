@@ -1,0 +1,51 @@
+\hypertarget{map_8cpp}{}\doxysection{src/map.cpp File Reference}
+\label{map_8cpp}\index{src/map.cpp@{src/map.cpp}}
+
+
+File containing functions that manipulate the map.  
+
+
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$nlohmann/json.\+hpp$>$}\newline
+{\ttfamily \#include \char`\"{}../include/map.\+h\char`\"{}}\newline
+Include dependency graph for map.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{map_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{map_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}\label{map_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}} 
+using {\bfseries json} = nlohmann\+::json
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+boost\+::tuple$<$ std\+::vector$<$ std\+::vector$<$ int $>$ $>$, int, int $>$ \mbox{\hyperlink{map_8cpp_a3ba8b85c295e1a114b6cf77197f605cc}{read\+\_\+2d\+\_\+map}} (const std\+::string \&map\+\_\+file)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+File containing functions that manipulate the map. 
+
+This file contains the functions that perform manipulation over the map such as reading or modifying it. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{map_8cpp_a3ba8b85c295e1a114b6cf77197f605cc}\label{map_8cpp_a3ba8b85c295e1a114b6cf77197f605cc}} 
+\index{map.cpp@{map.cpp}!read\_2d\_map@{read\_2d\_map}}
+\index{read\_2d\_map@{read\_2d\_map}!map.cpp@{map.cpp}}
+\doxysubsubsection{\texorpdfstring{read\_2d\_map()}{read\_2d\_map()}}
+{\footnotesize\ttfamily boost\+::tuple$<$std\+::vector$<$std\+::vector$<$int$>$ $>$, int, int$>$ read\+\_\+2d\+\_\+map (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{map\+\_\+file }\end{DoxyParamCaption})}
+
+This function reads and returns a 2d map from a file. 
+\begin{DoxyParams}{Parameters}
+{\em map\+\_\+file} & a string pointing to the location of the json file of the map. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boost\+::tuple$<$std\+::vector$<$std\+::vector$<$int$>$$>$, int, int$>$ three different values. A vector of vectors where each value is a cell of the map, an int representing the number of rows and an int representing the number of columns.
+\end{DoxyReturn}

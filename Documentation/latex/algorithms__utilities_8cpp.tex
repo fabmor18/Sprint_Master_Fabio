@@ -1,0 +1,74 @@
+\hypertarget{algorithms__utilities_8cpp}{}\doxysection{src/algorithms\+\_\+utilities.cpp File Reference}
+\label{algorithms__utilities_8cpp}\index{src/algorithms\_utilities.cpp@{src/algorithms\_utilities.cpp}}
+
+
+Algorithm utilities file.  
+
+
+{\ttfamily \#include \char`\"{}../include/algorithms\+\_\+utilities.\+h\char`\"{}}\newline
+Include dependency graph for algorithms\+\_\+utilities.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{algorithms__utilities_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classPrimitive}{Primitive}} $>$ \mbox{\hyperlink{algorithms__utilities_8cpp_a622468beed02ed07fd06e64feeddb051}{construct\+Path}} (std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{classNode}{Node}}, \mbox{\hyperlink{classNode}{Node}}, \mbox{\hyperlink{structNodeDataHash}{Node\+Data\+Hash}}, \mbox{\hyperlink{structNodeDataEqual}{Node\+Data\+Equal}} $>$ predecessors, std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{classNode}{Node}}, \mbox{\hyperlink{classPrimitive}{Primitive}}, \mbox{\hyperlink{structNodeDataHash}{Node\+Data\+Hash}}, \mbox{\hyperlink{structNodeDataEqual}{Node\+Data\+Equal}} $>$ primitives\+\_\+applied, const \mbox{\hyperlink{classNode}{Node}} \&goal, const \mbox{\hyperlink{classNode}{Node}} \&start, const Controls control\+\_\+level)
+\item 
+bool \mbox{\hyperlink{algorithms__utilities_8cpp_ab92bb27f2e4c2813d6fc687ab3079c03}{is\+Prim\+Appliable}} (\mbox{\hyperlink{classPrimitive}{Primitive}} prim, \mbox{\hyperlink{structnode__data}{node\+\_\+data}} curr\+\_\+pos, std\+::vector$<$ std\+::vector$<$ int $>$$>$ \&map, int rows, int cols)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Algorithm utilities file. 
+
+This file contains functions that performs routines used by the A$\ast$ algorithm 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{algorithms__utilities_8cpp_a622468beed02ed07fd06e64feeddb051}\label{algorithms__utilities_8cpp_a622468beed02ed07fd06e64feeddb051}} 
+\index{algorithms\_utilities.cpp@{algorithms\_utilities.cpp}!constructPath@{constructPath}}
+\index{constructPath@{constructPath}!algorithms\_utilities.cpp@{algorithms\_utilities.cpp}}
+\doxysubsubsection{\texorpdfstring{constructPath()}{constructPath()}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classPrimitive}{Primitive}}$>$ construct\+Path (\begin{DoxyParamCaption}\item[{std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{classNode}{Node}}, \mbox{\hyperlink{classNode}{Node}}, \mbox{\hyperlink{structNodeDataHash}{Node\+Data\+Hash}}, \mbox{\hyperlink{structNodeDataEqual}{Node\+Data\+Equal}} $>$}]{predecessors,  }\item[{std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{classNode}{Node}}, \mbox{\hyperlink{classPrimitive}{Primitive}}, \mbox{\hyperlink{structNodeDataHash}{Node\+Data\+Hash}}, \mbox{\hyperlink{structNodeDataEqual}{Node\+Data\+Equal}} $>$}]{primitives\+\_\+applied,  }\item[{const \mbox{\hyperlink{classNode}{Node}} \&}]{goal,  }\item[{const \mbox{\hyperlink{classNode}{Node}} \&}]{start,  }\item[{const Controls}]{control\+\_\+level }\end{DoxyParamCaption})}
+
+This function retrieves and orderds the correct path from start to goal and returns a vector of primitives in the correct application order. 
+\begin{DoxyParams}{Parameters}
+{\em predecessors} & unordered\+\_\+map that associates at each \mbox{\hyperlink{classNode}{Node}} its predecessor. \\
+\hline
+{\em primitives\+\_\+applied} & unordered\+\_\+map that associates at each \mbox{\hyperlink{classNode}{Node}} the \mbox{\hyperlink{classPrimitive}{Primitive}} applied to its predecessor to reach it. \\
+\hline
+{\em goal} & \mbox{\hyperlink{classNode}{Node}} defining the starting position of the path. \\
+\hline
+{\em start} & \mbox{\hyperlink{classNode}{Node}} defining the final position of the path. \\
+\hline
+{\em control\+\_\+level} & Controls variable defining the control level adopted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An ordered vector of the primitives applied to perform the best path from start to goal.
+\end{DoxyReturn}
+\mbox{\Hypertarget{algorithms__utilities_8cpp_ab92bb27f2e4c2813d6fc687ab3079c03}\label{algorithms__utilities_8cpp_ab92bb27f2e4c2813d6fc687ab3079c03}} 
+\index{algorithms\_utilities.cpp@{algorithms\_utilities.cpp}!isPrimAppliable@{isPrimAppliable}}
+\index{isPrimAppliable@{isPrimAppliable}!algorithms\_utilities.cpp@{algorithms\_utilities.cpp}}
+\doxysubsubsection{\texorpdfstring{isPrimAppliable()}{isPrimAppliable()}}
+{\footnotesize\ttfamily bool is\+Prim\+Appliable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPrimitive}{Primitive}}}]{prim,  }\item[{\mbox{\hyperlink{structnode__data}{node\+\_\+data}}}]{curr\+\_\+pos,  }\item[{std\+::vector$<$ std\+::vector$<$ int $>$$>$ \&}]{map,  }\item[{int}]{rows,  }\item[{int}]{cols }\end{DoxyParamCaption})}
+
+This function checks if a given primitive is appliable. A primitive is considered appliable if and only if the final position and each position in the collision checking path are inside the map\textquotesingle{}s border and not colliding with any obstacle. 
+\begin{DoxyParams}{Parameters}
+{\em prim} & \mbox{\hyperlink{classPrimitive}{Primitive}} object currently checked. \\
+\hline
+{\em curr\+\_\+pos} & \mbox{\hyperlink{structnode__data}{node\+\_\+data}} of the node in which the primitive should be applied \\
+\hline
+{\em map} & vector of vectors of int describing the map. \\
+\hline
+{\em rows} & int defining the number of rows of the map. \\
+\hline
+{\em cols} & int defining the number of cols of the map.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool value defining if the primitive is appliable or not.
+\end{DoxyReturn}

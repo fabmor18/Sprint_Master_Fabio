@@ -1,0 +1,26 @@
+{"primitives":[
+  {
+    "cost":0.0,
+    "final_acc":[1.0,1.0,1.0],"final_pos":[4.0,4.0,4.0],"final_vel":[1.0,1.0,1.0],
+    "initial_pos":[2.0,2.0,2.0],"initial_acc":[1.0,1.0,1.0],"initial_vel":[1.0,1.0,1.0],
+    "path":[[1,1,1]]},
+  {
+    "cost":1.0,
+    "final_acc":[1.0,1.0,1.0],"final_pos":[1.0,1.0,1.0],"final_vel":[1.0,1.0,1.0],
+    "initial_pos":[1.0,1.0,1.0],"initial_acc":[1.0,1.0,1.0],"initial_vel":[1.0,1.0,1.0],
+    "path":[[1,1,1]]},
+  {
+    "cost":2.0,
+    "final_acc":[1.0,1.0,1.0],"final_pos":[1.0,1.0,1.0],"final_vel":[1.0,1.0,1.0],
+    "initial_pos":[1.0,2.0,1.0],"initial_acc":[2.0,1.0,1.0],"initial_vel":[1.0,1.0,2.0],
+    "path":[[1,1,1]]},
+  {
+    "cost":3.0,
+    "final_acc":[1.0,1.0,1.0],"final_pos":[1.0,1.0,1.0],"final_vel":[1.0,1.0,1.0],
+    "initial_pos":[1.0,2.0,3.0],"initial_acc":[1.0,1.0,1.0],"initial_vel":[1.0,1.0,1.0],
+    "path":[[1,1,1]]},
+  {
+    "cost":4.0,
+    "final_acc":[1.0,1.0,1.0],"final_pos":[1.0,1.0,1.0],"final_vel":[1.0,1.0,1.0],
+    "initial_pos":[1.0,2.0,3.0],"initial_acc":[1.0,1.0,1.0],"initial_vel":[1.0,1.0,1.0],
+    "path":[[1,1,1]]}]}

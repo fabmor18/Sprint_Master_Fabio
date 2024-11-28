@@ -1,0 +1,58 @@
+\hypertarget{algorithms_8cpp}{}\doxysection{src/algorithms.cpp File Reference}
+\label{algorithms_8cpp}\index{src/algorithms.cpp@{src/algorithms.cpp}}
+
+
+Algorithm class.  
+
+
+{\ttfamily \#include \char`\"{}../include/algorithms.\+h\char`\"{}}\newline
+Include dependency graph for algorithms.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{algorithms_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classPrimitive}{Primitive}} $>$ \mbox{\hyperlink{algorithms_8cpp_a47389d8f562588efb21f10141129a939}{a\+\_\+star}} (const std\+::vector$<$ std\+::vector$<$ int $>$$>$ \&map, const int rows, const int cols, const \mbox{\hyperlink{classNode}{Node}} \&start, const \mbox{\hyperlink{classNode}{Node}} \&goal, \mbox{\hyperlink{classHeuristic}{Heuristic}} $\ast$heuristic, const std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{structnode__data}{node\+\_\+data}}, std\+::vector$<$ \mbox{\hyperlink{classPrimitive}{Primitive}} $>$, \mbox{\hyperlink{structPrimDataHash}{Prim\+Data\+Hash}}, \mbox{\hyperlink{structPrimEqualNodes}{Prim\+Equal\+Nodes}} $>$ \&all\+\_\+primitives, Controls control\+\_\+level)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Algorithm class. 
+
+This class contains the implementation of all the algorithms for path finding used in the project. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{algorithms_8cpp_a47389d8f562588efb21f10141129a939}\label{algorithms_8cpp_a47389d8f562588efb21f10141129a939}} 
+\index{algorithms.cpp@{algorithms.cpp}!a\_star@{a\_star}}
+\index{a\_star@{a\_star}!algorithms.cpp@{algorithms.cpp}}
+\doxysubsubsection{\texorpdfstring{a\_star()}{a\_star()}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classPrimitive}{Primitive}}$>$ a\+\_\+star (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ int $>$$>$ \&}]{map,  }\item[{const int}]{rows,  }\item[{const int}]{cols,  }\item[{const \mbox{\hyperlink{classNode}{Node}} \&}]{start,  }\item[{const \mbox{\hyperlink{classNode}{Node}} \&}]{goal,  }\item[{\mbox{\hyperlink{classHeuristic}{Heuristic}} $\ast$}]{heuristic,  }\item[{const std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{structnode__data}{node\+\_\+data}}, std\+::vector$<$ \mbox{\hyperlink{classPrimitive}{Primitive}} $>$, \mbox{\hyperlink{structPrimDataHash}{Prim\+Data\+Hash}}, \mbox{\hyperlink{structPrimEqualNodes}{Prim\+Equal\+Nodes}} $>$ \&}]{all\+\_\+primitives,  }\item[{Controls}]{control\+\_\+level }\end{DoxyParamCaption})}
+
+Implementation of A$\ast$ algorithm ~\newline
+This is the implementation of A$\ast$ algorithm used by Sprint. 
+\begin{DoxyParams}{Parameters}
+{\em map} & vector of vectors of int describing the map. \\
+\hline
+{\em rows} & int defining the number of rows of the map. \\
+\hline
+{\em cols} & int defining the number of cols of the map. \\
+\hline
+{\em start} & \mbox{\hyperlink{classNode}{Node}} defining the initial position of the algorithm. \\
+\hline
+{\em goal} & \mbox{\hyperlink{classNode}{Node}} defining the final position that the algorithm should reach. \\
+\hline
+{\em heuristic} & An \mbox{\hyperlink{classHeuristic}{Heuristic}} object used to calculate the heuristic that the algorithm will use. \\
+\hline
+{\em all\+\_\+primitives} & An unordered map that contains the primitives that will be used by the algorithm to create the neighbors of any given \mbox{\hyperlink{classNode}{Node}}. \\
+\hline
+{\em control\+\_\+level} & Controls enum member defining which control level is adopted for the current run of the algorithm. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An ordered vector of the primitives applied to perform the best path from start to goal. An empty vector if no path exists.
+\end{DoxyReturn}
+The implementation uses unordered\+\_\+map to organize the data, this choice is justidfied by the need to access at constant time based on data unique to each \mbox{\hyperlink{classNode}{Node}}. Since there is no way to identify any two given nodes a priori with an id the chosen solution is to use a custom Hash Function and an hashmap.
